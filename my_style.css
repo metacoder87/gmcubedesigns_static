@@ -241,6 +241,7 @@ section {
 /* Posts */
 
 .card-image{
+  width: 100%;
   transition: 0.4s;
 }
 
@@ -251,6 +252,10 @@ section {
 .card-image iframe{
   width: 100%;
   height: 400px;
+}
+
+.card-image a {
+  width: 100%;
 }
 
 .card .post-description {
