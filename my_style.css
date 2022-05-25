@@ -484,6 +484,7 @@ footer #design-tag img {
   padding: 8px 16px;
   color: white;
   box-shadow: inset 27px 0 51px -18px rgba(0,0,0,0.75);
+  text-decoration: none;
 }
 
 #sidebar img {
