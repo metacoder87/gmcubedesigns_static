@@ -486,6 +486,11 @@ footer #design-tag img {
   box-shadow: inset 27px 0 51px -18px rgba(0,0,0,0.75)
 }
 
+#sidebar img {
+  width: 300px;
+  height: auto;
+}
+
 /* comments section */
 
 #comments-section {
