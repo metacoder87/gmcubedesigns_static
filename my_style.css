@@ -483,24 +483,33 @@ footer #design-tag img {
 
 /* sidebar */
 
-#sidebar {
+#underbar {
+  display: flex;
+  justify-content: center;
+}
+
+#skill-list {
+  padding-left: 60px;
+}
+
+#sidebar, #underbar {
   background: #333;
   flex: 1;
   padding: 8px 16px;;
   box-shadow: inset 27px 0 51px -18px rgba(0,0,0,0.75);
 }
 
-#sidebar img {
+#sidebar img, #underbar img {
   width: 300px;
   height: auto;
 }
 
-aside a {
+aside a, #underbar a {
   text-decoration: none;
   color: #08f7fe;
 }
 
-aside a:hover {
+aside a:hover, #underbar a:hover {
   color: white;
 }
 
@@ -704,6 +713,9 @@ input[type=submit]:hover {
   }
   .card .card-image img {
     width: 100%;
+  }
+  #underbar {
+    display: none;
   }
 }
 
