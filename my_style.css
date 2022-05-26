@@ -349,9 +349,9 @@ footer #right-footer {
   text-align: center;
 }
 
-footer #social-media-footer a .fa-facebook,
-footer #social-media-footer a .fa-instagram,
-footer #social-media-footer a .fa-youtube {
+footer #social-media-footer a .fa-linkedin,
+footer #social-media-footer a .fa-github,
+footer #social-media-footer a .fa-stack-overflow {
   color: #08f7fe;
   transition: 0.4s;
 }
@@ -369,14 +369,14 @@ footer #social-media-footer ul li {
   transition: 0.4s;
 }
 
-footer #social-media-footer ul li:hover a .fa-facebook {
+footer #social-media-footer ul li:hover a .fa-linkedin {
   color: blue;
 }
-footer #social-media-footer ul li:hover a .fa-instagram {
-  color: purple;
+footer #social-media-footer ul li:hover a .fa-github {
+  color: whitesmoke;
 }
-footer #social-media-footer ul li:hover a .fa-youtube {
-  color: red;
+footer #social-media-footer ul li:hover a .fa-stack-overflow {
+  color: orange;
 }
 
 footer #design-tag {
@@ -465,7 +465,6 @@ footer #design-tag img {
   display: flex;
   flex-direction: column;
   width: 70%;
-  border-left: 1px solid #999;
 }
 
 #blogpost .card {
@@ -476,20 +475,33 @@ footer #design-tag img {
   box-shadow: none;
 }
 
+#dev-descript {
+  margin-left: 15px;
+  padding-right: 15px;
+  color: #08f7fe;
+}
+
 /* sidebar */
 
 #sidebar {
   background: #333;
   flex: 1;
-  padding: 8px 16px;
-  color: white;
+  padding: 8px 16px;;
   box-shadow: inset 27px 0 51px -18px rgba(0,0,0,0.75);
-  text-decoration: none;
 }
 
 #sidebar img {
   width: 300px;
   height: auto;
+}
+
+aside a {
+  text-decoration: none;
+  color: #08f7fe;
+}
+
+aside a:hover {
+  color: white;
 }
 
 /* comments section */
@@ -640,9 +652,9 @@ input[type=submit]:hover {
   footer #right-footer a {
     color: black;
   }
-  footer #social-media-footer a .fa-facebook,
-  footer #social-media-footer a .fa-instagram,
-  footer #social-media-footer a .fa-youtube {
+  footer #social-media-footer a .fa-linkedin,
+  footer #social-media-footer a .fa-github,
+  footer #social-media-footer a .fa-stack-overflow {
     color: #fe53bb;
     transition: 0.4s;
   }
