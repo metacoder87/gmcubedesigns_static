@@ -702,6 +702,12 @@ input[type=submit]:hover {
   }
 }
 
+@media(min-width:999px) {
+  #underbar {
+      display: none;
+    }
+}
+
 
 
 @media(min-width:720px) {
@@ -713,9 +719,6 @@ input[type=submit]:hover {
   }
   .card .card-image img {
     width: 100%;
-  }
-  #underbar {
-    display: none;
   }
 }
 
