@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="my_style.css">
-    <title>Clay Curts Racing | Indiana Race Team</title>
-    <link rel="icon" type="image/png" href="img/ccr logo 2.png">
+    <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
+    <title>Contact | GM Cube Designs</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <a href="contact.html">Contact</a>
             </li>
             <li>
-                <input type="text" placeholder="Search Here">
+                <input type="search" id="queryOne" onsearch="googlerOne()" placeholder="Google it...">
             </li>
         </ul>
     </div>
@@ -63,7 +63,7 @@
     </nav>
 
     <div id="searchbox">
-        <input type="text" placeholder="Search Here">
+        <input type="search" id="queryTwo" onsearch="googlerTwo()" placeholder="Google it...">
     </div>
 
     <main>
@@ -82,8 +82,8 @@
                     <label for="subject">Subject</label>
                     <textarea id="subject" name="subject" placeholder="What about.." style="height:50px"></textarea>
             
-                    <input type="submit" name="submit" value="Start Email"/>
-                    <input type="reset" name="reset" value="Clear"/>
+                    <input type="submit" id="start" name="submit" value="Start Email"/>
+                    <input type="reset" id="reset" name="reset" value="Clear"/>
             
                 </form>
             </div>
@@ -141,4 +141,5 @@
         </footer>
     </main>
     <script src="main.js"></script>
+    
 </body

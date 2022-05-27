@@ -513,6 +513,10 @@ aside a:hover, #underbar a:hover {
   color: white;
 }
 
+#leet {
+  padding-left: 25px;
+}
+
 /* comments section */
 
 #comments-section {
@@ -598,6 +602,15 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#start:hover {
+  background-color: #09fbd3;
+}
+
+#reset:hover {
+  background-color: #fe53bb;
+  padding: 0 23px;
 }
 
 input[type=submit]:hover {

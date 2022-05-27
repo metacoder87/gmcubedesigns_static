@@ -23,41 +23,45 @@ menuIcon.addEventListener('click', function() {
     slideoutMenu.style.opacity = '1';
     slideoutMenu.style.pointerEvents = 'auto';
   }
-})
+});
 
+function googlerOne() {
+  let inputOne = document.getElementById("queryOne").value;
+  let link = "https://www.google.com/search?q=" + inputOne;
+  window.open(link);
+};
+
+function googlerTwo() {
+  let inputTwo = document.getElementById("queryTwo").value;
+  let link = "https://www.google.com/search?q=" + inputTwo;
+  window.open(link);
+};
 
 // Image Slider
 
-var img = document.getElementById('slider-img');
+// var img = document.getElementById('slider-img');
+// var images = [];
+// var x = 0;
 
-var images = ['ccr car 1.png', 'ccr car 2.png', 'ccr car 3.png',
-              'ccr car 5.png', 'curts_n_car.png'];
+// function slide(){
+//     if (x < images.length) {
+//         x = x + 1;
+//     }else{
+//         x = 1;
+//     }
+//     img.innerHTML = "<img src='img/" + images[x-1] + "'>";
+// }
 
-var x = 0;
-
-function slide(){
-    if (x < images.length) {
-
-        x = x + 1;
-
-    }else{
-        x = 1;
-    }
-    img.innerHTML = "<img src='img/" + images[x-1] + "'>";
-}
-
-function slideBack(){
-    if (x < images.length + 1 && x > 1) {
-
-        x = x - 1;
-
-    }else{
-        x = images.length;
-    }
-    img.innerHTML = "<img src='img/" + images[x-1] + "'>";
-}
+// function slideBack(){
+//     if (x < images.length + 1 && x > 1) {
+//         x = x - 1;
+//     }else{
+//         x = images.length;
+//     }
+//     img.innerHTML = "<img src='img/" + images[x-1] + "'>";
+// }
 
 
-// auto slide timing
+// // auto slide timing
 
-setInterval(slide, 7000);
+// setInterval(slide, 7000);
