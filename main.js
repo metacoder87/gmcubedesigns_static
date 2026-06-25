@@ -1,67 +1,18 @@
-// Search
+// main.js - Execute when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
 
-const menuIcon = document.getElementById("menu-icon");
-const slideoutMenu = document.getElementById("slideout-menu");
-const searchIcon = document.getElementById("search-icon");
-const searchBox = document.getElementById('searchbox');
+  // 1. Highlight the active navigation link
+  const currentLocation = window.location.pathname;
+  const navLinks = document.querySelectorAll("nav a");
 
-searchIcon.addEventListener('click', function() {
-  if (searchBox.style.top == '72px') {
-    searchBox.style.top = '18px';
-    searchBox.style.pointerEvents = 'none';
-  } else {
-    searchBox.style.top = '72px';
-    searchBox.style.pointerEvents = 'auto';
-  }
+  navLinks.forEach(link => {
+    // Check if the link's href matches the current path
+    if (link.getAttribute("href") === currentLocation.split("/").pop() ||
+      (currentLocation.endsWith("/") && link.getAttribute("href") === "index.html")) {
+      link.classList.add("active");
+    }
+  });
+
+  // 2. Add a simple console greeting for recruiters inspecting your site
+  console.log("%cSYSTEM ONLINE: Welcome to the metacoder87 network.", "color: #00f3ff; font-size: 14px; font-weight: bold;");
 });
-
-menuIcon.addEventListener('click', function() {
-  if (slideoutMenu.style.opacity == "1") {
-    slideoutMenu.style.opacity = '0';
-    slideoutMenu.style.pointerEvents = 'none';
-  } else {
-    slideoutMenu.style.opacity = '1';
-    slideoutMenu.style.pointerEvents = 'auto';
-  }
-});
-
-function googlerOne() {
-  let inputOne = document.getElementById("queryOne").value;
-  let link = "https://www.google.com/search?q=" + inputOne;
-  window.open(link);
-};
-
-function googlerTwo() {
-  let inputTwo = document.getElementById("queryTwo").value;
-  let link = "https://www.google.com/search?q=" + inputTwo;
-  window.open(link);
-};
-
-// Image Slider
-
-// var img = document.getElementById('slider-img');
-// var images = [];
-// var x = 0;
-
-// function slide(){
-//     if (x < images.length) {
-//         x = x + 1;
-//     }else{
-//         x = 1;
-//     }
-//     img.innerHTML = "<img src='img/" + images[x-1] + "'>";
-// }
-
-// function slideBack(){
-//     if (x < images.length + 1 && x > 1) {
-//         x = x - 1;
-//     }else{
-//         x = images.length;
-//     }
-//     img.innerHTML = "<img src='img/" + images[x-1] + "'>";
-// }
-
-
-// // auto slide timing
-
-// setInterval(slide, 7000);

@@ -1,250 +1,129 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="my_style.css">
-    <title>GM Cubed Designs | Web Development Full Stack</title>
-        <link rel="icon" type = "image/png" href="img/gm_cubed_neon.png">
-  </head>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="my_style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+  <title>AI Architect | Gary Miller
+    <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
+  </title>
+</head>
 
 <body>
-    <div id="slideout-menu">
-      <ul>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-        <li>
-          <a href="team.html">Developer</a>
-        </li>
-        <li>
-          <a href="contact.html">Contact</a>
-        </li>
-        <li>
-            <input type="search" id="queryOne" onsearch="googlerOne()" placeholder="Google it...">
-        </li>
-      </ul>
+
+  <nav>
+    <a href="index.html">&lt; PROJECTS /&gt;</a>
+    <a href="team.html">&lt; DEVELOPER /&gt;</a>
+    <a href="contact.html">&lt; CONTACT /&gt;</a>
+    <a href="https://github.com/metacoder87" target="_blank">&lt; GITHUB /&gt;</a>
+  </nav>
+
+  <header>
+    <h1>Gary <span>Miller</span></h1>
+    <p>SYS.ADMIN // AI.ARCHITECT // FULL_STACK.ENG</p>
+  </header>
+
+  <div class="container" id="projects">
+    <h2 class="section-title">DIR: /Latest_Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3 class="project-title">Holdem-Trainer</h3>
+        <p class="project-desc">A local-first quantitative poker engine and trainer. Features real-time EV decision
+          grading, CFR+ game-theory solvers, and Monte Carlo range equity simulations.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Investment Matrix</h3>
+        <p class="project-desc">Self-hosted crypto market research & automated paper-trading platform. Features
+          multi-exchange live tick streaming and historical backtesting.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">TimescaleDB</span>
+          <span class="tech-tag">Redis</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Content Writers</h3>
+        <p class="project-desc">A full-stack, local AI article studio. Operates purely on a local machine, powered by
+          CrewAI autonomous agents for end-to-end content generation.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">CrewAI</span>
+          <span class="tech-tag">Ollama</span>
+          <span class="tech-tag">React/Vite</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Qdrant Search Project</h3>
+        <p class="project-desc">A full-stack, locally deployable semantic search console built for secure document
+          retrieval and local AI model evaluation.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Qdrant</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Learning Tree</h3>
+        <p class="project-desc">A local-first 3D educational platform featuring real-time AI lesson streaming via
+          localized language models.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">React Three Fiber</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">SQLite</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Sidekick LLM</h3>
+        <p class="project-desc">A privacy-first desktop AI client featuring seamless Ollama integration for secure,
+          localized LLM interactions without cloud APIs.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Electron</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">SQLite</span>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <nav>
-      <div id="logo-img">
-          <a href="index.html">
-              <img src='img/gm_cubed_banner.png' alt='G M Cubed Logo'>
-          </a>
-      </div>
-      <div id="menu-icon">
-          <i class="fas fa-bars"></i>
-      </div>
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="team.html">Developer</a>
-          </li>
-          <li>
-            <a href="contact.html">Contact</a>
-          </li>
-          <li>
-            <div id="search-icon">
-              <i class="fas fa-search"></i>
-            </div>
-          </li>
-        </ul>
-    </nav>
-
-    <div id="searchbox">
-      <input type="search" id="queryTwo" onsearch="googlerTwo()" placeholder="Google it...">
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/therealgarymiller" target="_blank" title="LinkedIn"
+        class="social-linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/metacoder87" target="_blank" title="GitHub" class="social-github"><i
+          class="fab fa-github"></i></a>
+      <a href="https://stackoverflow.com/users/8031257/metag" target="_blank" title="StackOverflow"
+        class="social-stackoverflow"><i class="fab fa-stack-overflow"></i></a>
+      <a href="https://medium.com/@AtlasAnomalous" target="_blank" title="Medium" class="social-medium"><i
+          class="fab fa-medium"></i></a>
     </div>
+    <p>SYSTEM.HALT() // © 2026 GARY MILLER [METACODER87]</p>
+    <div id="design-tag">
+      <a href="index.html">
+        <img src="img/gm_cubed_neon.png" alt="GM Cubed Designs Logo">
+      </a>
+    </div>
+  </footer>
 
-      <div id="banner">
-        <h1>GM<sup>3</sup> Designs</h1>
-        <h3>Imagination to Pagination</h3>
-        <img src="img/gm_cubed_neon.png" alt="">
-      </div>
+  <script src="main.js"></script>
+</body>
 
-      <main>
-        <a href="#projects">
-          <h2 id="projects" class="section-heading">Projects</h2>
-        </a>
-
-        <section>
-          <!-- <div class="card">
-            <div class="card-image">
-              <a href="https://mysonictronics.com">
-                <img src="img/mst_screenshot.png" alt="Post Image">
-              </a>
-            </div>
-            <div class="post-description">
-              <a href="https://mysonictronics.com">
-                <h3>My Sonic Tronics</h3>
-              </a>
-              <p>
-                My Sonic Tronics was my first business Through this 
-                site I learne to design, code, and test websites. MST
-                was an e-commerce store specializing in wireless bluetooth
-                headphones, earbuds, and bluetooth speakers. This website
-                has since been sold, and is no longer my own.
-              </p>
-              <a href="blogpost.html" class="btn-readmore">read more</a>
-            </div>
-          </div> -->
-
-          <div id="project-one" class="card">
-            <div class="card-image">
-              <a href="https://metacoder87.github.io/things-i-can-cook">
-                <iframe src="https://metacoder87.github.io/things-i-can-cook" frameborder="0"></iframe>
-              </a>
-            </div>
-            <div class="post-description">
-              <a href="https://metacoder87.github.io/things-i-can-cook/">
-                <h3>Things I Can Cook</h3>
-              </a>
-              <p>
-                The Things I Can Cook is a list of the various dishes that
-                I have a proclivity for preparing. There is a selection for 
-                anytime and recipes for each meal. This list includes many
-                family recipes handed down for generations and a few of my
-                own.
-              </p>
-              <a href="https://github.com/metacoder87/things-i-can-cook" class="btn-readmore">SRCE CODE</a>
-            </div>
-          </div>
-          <div id="project-two" class="card">
-            <div class="card-image">
-              <a href="https://metacoder87.github.io/aquarius_ascending/index.html">
-                <iframe src="https://metacoder87.github.io/aquarius_ascending/index.html" frameborder="0"></iframe>
-              </a>
-            </div>
-            <div class="post-description">
-              <a href="https://metacoder87.github.io/aquarius_ascending/index.html">
-                <h3>Aquarius Ascending</h3>
-              </a>
-              <p>
-                A series of short stories written by yours truly. These are 
-                epic science fiction twisting in magical ancient history, aliens,
-                zombies, time travel, space travel, and revolution from an evil
-                dystopian world. Check it out.
-              </p>
-              <a href="https://github.com/metacoder87/aquarius_ascending" class="btn-readmore">SRCE CODE</a>
-            </div>
-          </div>
-        </section>
-
-        <a href="#rails-apps">
-          <h3 id="rails-apps" class="section-heading">Rails Apps</h3>
-        </a>
-
-        <section>
-          <div id="rails-one" class="card">
-            <div class="card-image">
-              <a href="https://rent-a-cat-u0xy.onrender.com/cats">
-                <img src="img/99_cats_screenshot.png" alt="99 Cats Screenshot">
-              </a>
-            </div>
-            <div class="post-description">
-              <a href="https://rent-a-cat-u0xy.onrender.com/cats">
-                <h3>Rent-A-Cat</h3>
-              </a>
-              <p>
-                99 Cats bring people and cats together on a scheduled basis.
-                Sign up and take a cat home. Pick your cat and the date range.
-                If the cats owner approves, the cat is yours temporarily. You
-                do have to give the cat back after your approved visitation is
-                over. You have to give others a turn at happiness.
-              </p>
-              <a href="https://github.com/metacoder87/gary_miller_ninety_nine_cats" class="btn-readmore">SRCE CODE</a>
-            </div>
-          </div>
-        </section>
-
-        <a href="#php-apps">
-          <h3 id="php-apps" class="section-heading">PHP WP Apps</h3>
-        </a>
-
-        <section>
-          <div id="php-one" class="card">
-            <div class="card-image">
-              <a href="https://metacoder87.github.io/ccr/index.html">
-                <iframe src="https://metacoder87.github.io/ccr/index.html" frameborder="0"></iframe>
-              </a>
-            </div>
-            <div class="post-description">
-              <a href="https://metacoder87.github.io/ccr/index.html">
-                <h3>Clay Curts Racing</h3>
-              </a>
-              <p>
-                CCR was my first professional site design and build
-                while still working full time mixing paint and fixing
-                systems for a locomotive manufacturer. Clay Curts
-                grew his racing career and got signed to a team on
-                the national circuit thanks in small part to the
-                recognition attained with this website.He has had
-                to discontinue use of this site. So here it is as an
-                archive of my design skills.
-              </p>
-              <a href="https://github.com/metacoder87/CCR-Site-Build" class="btn-readmore">SRCE CODE</a>
-            </div>
-          </div>
-        </section>
-
-          <footer>
-            <div id="left-footer">
-              <h3>Quick Links</h3>
-              <p>
-                <ul>
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li>
-                    <a href="#projects">Projects</a>
-                  </li>
-                  <li>
-                    <a href="team.html">Developer</a>
-                  </li>
-                  <li>
-                    <a href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </p>
-            </div>
-
-            <div id="right-footer">
-              <h3>Follow us on</h3>
-              <div id="social-media-footer">
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/company/g-m-cubed">
-                      <i class="fab fa-linkedin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/metacoder87">
-                      <i class="fab fa-github"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://stackoverflow.com/users/8031257/metag">
-                      <i class="fab fa-stack-overflow"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            <div id="design-tag">
-              <a href="index.html">
-                <p>Website Designed by GM<sup>3</sup> Designs </p>
-                <img src="img/gm_cubed_neon.png" alt="GM Cubed Designs Logo">
-              </a>
-            </div>
-           </div>
-          </footer>
-      </main>
-      <script src="main.js"></script>
-</body
+</html>
