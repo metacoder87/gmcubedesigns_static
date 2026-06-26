@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <nav>
         <a href="index.html">&lt; PROJECTS /&gt;</a>
         <a href="team.html">&lt; PROFILE /&gt;</a>
@@ -25,19 +24,37 @@
     </header>
 
     <div class="container" id="case-study">
-        <h2 class="section-title">SYS.LOG: Content Writers</h2>
+        <h2 class="section-title">SYS.LOG: Content Writers (Local Article Studio)</h2>
 
         <div class="about-grid">
             <div class="video-wrapper">
-                <div class="video-placeholder">[ NO FEED DETECTED ]</div>
+                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
             </div>
 
             <div class="about-text">
-                <h3 style="color: var(--neon-green);">>_ ACCESS_RESTRICTED</h3>
-                <p>This project log is currently encrypted or undergoing compilation. Please check back later.</p>
+                <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
+                <p><strong>Local Article Studio</strong> is a self-contained, containerized workstation designed for automated, high-quality article generation and interactive revision. It transitions AI agents from simple chat interfaces to structured, predictable software delivery pipelines.</p>
+                <p>The platform employs a multi-agent system powered by <strong>FastAPI</strong> and <strong>CrewAI</strong>, collaborating with local Large Language Models (LLMs) like <strong>Ollama</strong> or <strong>LM Studio</strong>. It orchestrates domain-specific strategy, deep research, drafting, and editorial review—entirely on local infrastructure to ensure privacy and eliminate token costs.</p>
 
-                <a href="index.html" class="submit-btn"
-                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">RETURN_TO_INDEX()</a>
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
+                <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <li><strong>Presentation Layer:</strong> React, Vite, Tailwind CSS, Zustand, and React Quill. Provides real-time agent output tracking and WYSIWYG editing.</li>
+                    <li><strong>Orchestration Layer:</strong> FastAPI server managing CrewAI endpoints. Constructs dynamic multi-agent crews based on user intent.</li>
+                    <li><strong>Data & AI Infrastructure:</strong> SQLite (via SQLAlchemy) for storage, DuckDuckGo API for live retrieval, and local inference via host-mapped Ollama instances.</li>
+                </ul>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
+                <p><strong>1. Data-Driven Agent Personas:</strong> Instead of hardcoding prompts, a dynamic persona factory handles roles, goals, and backstories via JSON presets. This decoupling enables high scalability across domains (e.g., Tech, Finance, Philosophy) without altering backend logic.</p>
+                <p><strong>2. CrewAI Runtime Sandboxing:</strong> CrewAI typically litters the host system with local SQLite tracking databases. I engineered a runtime storage patch that dynamically overrides memory path resolvers, funneling all telemetry and agent states into a clean, Docker-mountable <code>.cache</code> volume.</p>
+                <p><strong>3. Bidirectional Markdown Parsing:</strong> LLMs write in Markdown, but users edit in WYSIWYG HTML. I implemented a seamless translation layer utilizing <code>TurndownService</code> to convert user HTML modifications back into strict ATX-style Markdown during re-prompting, preventing context degradation.</p>
+                <p><strong>4. Deep Web Research Tooling:</strong> Standard LLM search tools only read shallow snippets. I authored a custom <code>DuckDuckGoSearchTool</code> that asynchronously fetches the top N landing pages, parses DOM trees, strips markup, and feeds the actual body content excerpts to the research agent.</p>
+                <p><strong>5. Long-Running Workflow Proxies:</strong> Multi-agent chains take 45-150 seconds, breaking default Nginx reverse proxy connections. I configured explicit 300s HTTP proxy timeout gates and host-gateway mappings to ensure stable, long-running Docker-to-Host LLM communication.</p>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ AGENTIC WORKFLOW DESIGN</h3>
+                <p>The system leverages two robust, sequential pipelines. The <strong>Generation Pipeline</strong> orchestrates a Strategist (Angle Formulation) → Researcher (Live Web Excerpts) → Lead Writer (Drafting) → Editor (Polish). For revisions, a specialized <strong>Regeneration Loop</strong> triggers a Gap Analysis Researcher → Targeted Redraft Writer → Final Editor to intelligently amend specific sections without hallucinating.</p>
+
+                <a href="https://github.com/metacoder87/content_writers" class="submit-btn" target="_blank"
+                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
             </div>
         </div>
     </div>
@@ -48,5 +65,4 @@
 
     <script src="main.js"></script>
 </body>
-
 </html>

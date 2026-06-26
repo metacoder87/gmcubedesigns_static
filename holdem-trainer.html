@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <nav>
         <a href="index.html">&lt; PROJECTS /&gt;</a>
         <a href="team.html">&lt; PROFILE /&gt;</a>
@@ -25,7 +24,7 @@
     </header>
 
     <div class="container" id="case-study">
-        <h2 class="section-title">SYS.LOG: Holdem-Trainer</h2>
+        <h2 class="section-title">SYS.LOG: Holdem-Trainer (PyHoldem Pro)</h2>
 
         <div class="about-grid">
             <div class="video-wrapper">
@@ -34,13 +33,23 @@
 
             <div class="about-text">
                 <h3 style="color: var(--neon-green);">>_ MISSION_OBJECTIVE</h3>
-                <p>In competitive Texas Hold'em poker, the difference between a winning and losing player lies in identifying and patching marginal leaks. While solver-grade software exists for professional players, it suffers from significant inefficiencies such as high barriers to entry, privacy concerns, and a lack of integrated real-time evaluation.</p>
-                <p>PyHoldem Pro addresses this market gap by delivering an open-source, local-first, highly integrated gameplay simulator, automated coaching assistant, and statistical training platform. It runs locally to guarantee absolute data privacy while executing real-time expected value (EV) based grading, Bayesian playing-style classifications, and spaced-repetition training drills.</p>
+                <p>In competitive Texas Hold'em poker, profitability is dictated by identifying and patching marginal expected value (EV) leaks. Traditional solver-grade software suffers from high barriers to entry, steep learning curves, and critical data privacy concerns—requiring users to upload proprietary hand histories to third-party databases.</p>
+                <p><strong>PyHoldem Pro</strong> addresses this by delivering an open-source, local-first, highly integrated gameplay simulator and automated coaching assistant. It provides real-time EV-based grading, Bayesian playing-style classifications, and spaced-repetition training drills with absolute local data privacy.</p>
                 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
-                <p><strong>Frontend (React 18 + TypeScript + Vite):</strong> Selected for high-performance rendering of fast-updating table states and dashboard UI components. Type safety with TypeScript ensures complex WebSocket payloads remain compliant with backend contracts.</p>
-                <p><strong>Backend (Python 3.13 + FastAPI + Uvicorn):</strong> Python was chosen for its robust mathematical libraries and hand evaluation speed, which are essential for CFR+ models and EV calculations. FastAPI efficiently handles concurrent operations using ASGI, routing REST endpoints and persistent WebSocket connections with low latency.</p>
-                <p><strong>Core Engineering Challenges:</strong> Computing preflop/postflop equity requires thousands of Monte Carlo simulations, which can block the event loop. This was mitigated by implementing highly compressed lookup tables, caching identical board/hand combinations, and preferring exact enumeration when cards-to-come are low. Additionally, a server-owned validation structure prevents client-side inspection during training drills, and an optimized recursive dynamic programming approach allows for rapid exact Malmuth-Harville ICM permutation calculations.</p>
+                <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <li><strong>Frontend (React 18 + TypeScript + Vite):</strong> Engineered for high-performance rendering of fast-updating table states. TypeScript ensures strict type safety over complex WebSocket payloads.</li>
+                    <li><strong>Backend (Python 3.13 + FastAPI + Uvicorn):</strong> Python was selected for its robust mathematical libraries and rapid hand evaluation capabilities. FastAPI manages high-concurrency operations and persistent WebSocket connections with low latency.</li>
+                    <li><strong>Persistence & Observability:</strong> PostgreSQL with SQLAlchemy/Alembic handles relational mapping, while a Docker Compose overlay of Prometheus and Grafana tracks API latencies and game loop health.</li>
+                </ul>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
+                <p><strong>1. Scaling CPU-Bound Monte Carlo in an ASGI Event Loop:</strong> Calculating multiway range-vs-range equity requires thousands of Monte Carlo card simulations, which normally blocks FastAPI's event loop and drops WebSockets. I optimized this by implementing a highly compressed lookup table and a C-level fast evaluation module. Identical board/hand permutations are cached, and exact enumeration algorithms execute dynamically when cards-to-come are low.</p>
+                <p><strong>2. Scaling Exact Malmuth-Harville ICM Permutations:</strong> Computing tournament Independent Chip Model (ICM) equity across a 9-handed table requires $9! = 362,880$ permutations. I engineered a recursive dynamic programming algorithm that calculates probabilities in $O(2^n \cdot n)$ using memoized sub-state stack weights, driving execution times under 5 milliseconds.</p>
+                <p><strong>3. Preventing Client-Side Inspection in Drills:</strong> To prevent players from bypassing math drills via React state inspection, I implemented a server-owned validation architecture. The frontend only receives a <code>quiz_id</code>, and absolute/relative tolerance evaluations are computed securely server-side before persisting progress to the DB.</p>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ FUTURE ROADMAP</h3>
+                <p>Integration of Celery and Redis to handle CPU-intensive Counterfactual Regret Minimization (CFR+) solving outside the web request cycle, alongside an automated study scheduler targeting the user's highest EV-loss nodes.</p>
 
                 <a href="https://github.com/metacoder87/Holdem-Trainer" class="submit-btn" target="_blank"
                     style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
@@ -54,5 +63,4 @@
 
     <script src="main.js"></script>
 </body>
-
 </html>
