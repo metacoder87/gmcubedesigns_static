@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <nav>
         <a href="index.html">&lt; PROJECTS /&gt;</a>
         <a href="team.html">&lt; PROFILE /&gt;</a>
@@ -29,15 +28,29 @@
 
         <div class="about-grid">
             <div class="video-wrapper">
-                <div class="video-placeholder">[ NO FEED DETECTED ]</div>
+                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
             </div>
 
             <div class="about-text">
-                <h3 style="color: var(--neon-green);">>_ ACCESS_RESTRICTED</h3>
-                <p>This project log is currently encrypted or undergoing compilation. Please check back later.</p>
+                <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
+                <p><strong>The Learning Tree</strong> is a local-first AI education application centered around an interactive 3D canopy. Unlike shallow prompt wrappers that merely generate text, this platform treats AI output as a highly constrained subsystem to solve the fundamental challenges of automated education: learner state persistence, measurable mastery, and strict data privacy.</p>
+                <p>Designed for offline and privacy-conscious environments, it integrates a deterministic curriculum engine with dynamic local inference, ensuring the user retains absolute control over their children's learning data without relying on hosted cloud APIs.</p>
 
-                <a href="index.html" class="submit-btn"
-                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">RETURN_TO_INDEX()</a>
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
+                <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <li><strong>Frontend (React 18 + TypeScript + R3F):</strong> A full-screen React Three Fiber (Three.js) interface that maps API mastery coordinates into renderable, interactive scene data.</li>
+                    <li><strong>Backend (Python + FastAPI):</strong> Owns the correctness-sensitive control loops—lesson construction, quiz scoring, and local AI health checks.</li>
+                    <li><strong>Data & Inference:</strong> SQLite (via SQLAlchemy) enforces strict relational foreign keys for learning persistence, while an Ollama container powers localized NLP tasks.</li>
+                </ul>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
+                <p><strong>1. Privacy-Preserving State Tracking:</strong> Most AI tutors do not actually track mastery or maintain local history. I engineered a robust SQLite schema that associates local profiles with specific leaf mastery. A selected leaf resolves into a <code>LessonGenerationContext</code>, allowing the backend to track exact pedagogical progress without ever transmitting data to the cloud.</p>
+                <p><strong>2. Structured Curriculum Contracts:</strong> Raw LLM text is a liability in education. If a model hallucinates inconsistent quiz answers, the UI breaks. I designed a rigid validation boundary using Pydantic schemas. The model must produce a <code>LessonPackage</code> with required teaching sequences, guided practice, and backend-scored answer keys, or the generation is rejected.</p>
+                <p><strong>3. Streaming Responsiveness via SSE:</strong> To maintain UI fluidity during slow local inference, I decoupled generation from rendering. The lesson reader opens immediately with a provisional state, and a Server-Sent Events (SSE) stream incrementally pushes JSON state transitions (<code>start</code>, <code>token</code>, <code>replace</code>, <code>complete</code>), providing a recoverable state machine without the heavy overhead of WebSockets.</p>
+                <p><strong>4. 3D Visual Mastery Projection:</strong> The 3D canopy is not merely decorative; it is a live reflection of database state. A completed challenge idempotently updates the <code>profile_leaf_progress</code> table, triggering an API refresh that visually rejuvenates the tree branch, explicitly linking backend assessment logic to frontend 3D rendering.</p>
+
+                <a href="https://github.com/metacoder87/learning_tree" class="submit-btn" target="_blank"
+                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
             </div>
         </div>
     </div>
@@ -48,5 +61,4 @@
 
     <script src="main.js"></script>
 </body>
-
 </html>
