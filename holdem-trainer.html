@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my_style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+    <title>Holdem-Trainer | Gary Miller</title>
+    <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">&lt; PROJECTS /&gt;</a>
+        <a href="team.html">&lt; PROFILE /&gt;</a>
+        <a href="contact.html">&lt; CONTACT /&gt;</a>
+        <a href="https://github.com/metacoder87" target="_blank">&lt; GITHUB /&gt;</a>
+    </nav>
+
+    <header>
+        <h1>Gary <span>Miller</span></h1>
+        <p>PRINCIPAL_AI.ARCHITECT // SENIOR_AI.ENG // QUANT.DEV</p>
+    </header>
+
+    <div class="container" id="case-study">
+        <h2 class="section-title">SYS.LOG: Holdem-Trainer</h2>
+
+        <div class="about-grid">
+            <div class="video-wrapper">
+                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
+            </div>
+
+            <div class="about-text">
+                <h3 style="color: var(--neon-green);">>_ MISSION_OBJECTIVE</h3>
+                <p>In competitive Texas Hold'em poker, the difference between a winning and losing player lies in identifying and patching marginal leaks. While solver-grade software exists for professional players, it suffers from significant inefficiencies such as high barriers to entry, privacy concerns, and a lack of integrated real-time evaluation.</p>
+                <p>PyHoldem Pro addresses this market gap by delivering an open-source, local-first, highly integrated gameplay simulator, automated coaching assistant, and statistical training platform. It runs locally to guarantee absolute data privacy while executing real-time expected value (EV) based grading, Bayesian playing-style classifications, and spaced-repetition training drills.</p>
+                
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
+                <p><strong>Frontend (React 18 + TypeScript + Vite):</strong> Selected for high-performance rendering of fast-updating table states and dashboard UI components. Type safety with TypeScript ensures complex WebSocket payloads remain compliant with backend contracts.</p>
+                <p><strong>Backend (Python 3.13 + FastAPI + Uvicorn):</strong> Python was chosen for its robust mathematical libraries and hand evaluation speed, which are essential for CFR+ models and EV calculations. FastAPI efficiently handles concurrent operations using ASGI, routing REST endpoints and persistent WebSocket connections with low latency.</p>
+                <p><strong>Core Engineering Challenges:</strong> Computing preflop/postflop equity requires thousands of Monte Carlo simulations, which can block the event loop. This was mitigated by implementing highly compressed lookup tables, caching identical board/hand combinations, and preferring exact enumeration when cards-to-come are low. Additionally, a server-owned validation structure prevents client-side inspection during training drills, and an optimized recursive dynamic programming approach allows for rapid exact Malmuth-Harville ICM permutation calculations.</p>
+
+                <a href="https://github.com/metacoder87/Holdem-Trainer" class="submit-btn" target="_blank"
+                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>SYSTEM.HALT() // © 2026 GARY MILLER [METACODER87]</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
