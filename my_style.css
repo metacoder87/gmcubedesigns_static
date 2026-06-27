@@ -432,3 +432,61 @@ footer {
   color: var(--neon-cyan);
   animation: blink-cursor 1.5s infinite;
 }
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  nav a {
+    font-size: 0.9rem;
+  }
+  
+  header {
+    padding: 2rem 1rem 1rem;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-grid {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.3rem;
+  }
+  
+  .submit-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    padding: 0 1rem;
+  }
+}
