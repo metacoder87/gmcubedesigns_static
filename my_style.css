@@ -13,6 +13,11 @@
   --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* --- UNIVERSAL BOX-SIZING --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* --- GLOBAL STYLES --- */
 body {
   background-color: var(--bg-color);
@@ -57,7 +62,8 @@ nav {
   backdrop-filter: blur(5px);
   position: sticky;
   top: 0;
-  z-index: 1000; /* Increased z-index to stay above floating elements */
+  z-index: 1000;
+  /* Increased z-index to stay above floating elements */
 }
 
 .hamburger-btn {
@@ -442,6 +448,7 @@ footer {
 /* --- CASE STUDY VIDEO WRAPPER --- */
 .video-wrapper {
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 16 / 9;
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid #333;
@@ -450,12 +457,24 @@ footer {
   justify-content: center;
   margin-bottom: 2rem;
   box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.1);
+  overflow: hidden; /* Prevent iframe spillover */
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
 }
 
 .video-placeholder {
   font-family: var(--font-mono);
   color: var(--neon-cyan);
   animation: blink-cursor 1.5s infinite;
+  text-align: center;
+  padding: 1rem;
+  word-break: break-word;
 }
 
 /* --- THEME TOGGLE BUTTON --- */
@@ -480,7 +499,7 @@ footer {
   height: 24px;
   border-radius: 4px;
   background: #e2e8f0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #cbd5e0;
   transition: all 0.4s ease;
 }
@@ -521,7 +540,7 @@ body.corporate-theme a:hover {
 body.corporate-theme nav {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 body.corporate-theme nav a {
@@ -546,16 +565,16 @@ body.corporate-theme header h1 span {
 
 body.corporate-theme .about-grid {
   border-color: #e2e8f0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 body.corporate-theme .project-card {
   border-color: #e2e8f0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 body.corporate-theme .project-card:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.corporate-theme .project-card::before {
@@ -581,7 +600,7 @@ body.corporate-theme .submit-btn {
 
 body.corporate-theme .submit-btn:hover {
   background: #2b6cb0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 body.corporate-theme .contact-form input,
@@ -661,12 +680,12 @@ body.corporate-theme .floating-chat-btn {
   background: #3182ce;
   color: #ffffff;
   border-color: #3182ce;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body.corporate-theme .floating-chat-btn:hover {
   background: #2b6cb0;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
@@ -674,7 +693,7 @@ body.corporate-theme .floating-chat-btn:hover {
   nav {
     padding: 1rem 1.5rem;
   }
-  
+
   .hamburger-btn {
     display: block;
   }
@@ -691,7 +710,7 @@ body.corporate-theme .floating-chat-btn:hover {
     padding: 1rem 0;
     gap: 1rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
 
   .nav-links.active {
@@ -719,15 +738,16 @@ body.corporate-theme .floating-chat-btn:hover {
   header p {
     font-size: 0.9rem;
   }
-  
+
   .container {
     padding: 2rem 1rem;
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     word-break: break-word;
     overflow-wrap: break-word;
+    white-space: normal; /* Override any nowrap from typing effect */
     margin-bottom: 1.5rem;
   }
 
@@ -739,11 +759,11 @@ body.corporate-theme .floating-chat-btn:hover {
   .project-card {
     padding: 1.5rem;
   }
-  
+
   .project-title {
     font-size: 1.3rem;
   }
-  
+
   .submit-btn {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
@@ -752,4 +772,4 @@ body.corporate-theme .floating-chat-btn:hover {
   .contact-form {
     padding: 0 1rem;
   }
-}
+}
