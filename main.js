@@ -1,7 +1,30 @@
 // main.js - Execute when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+  
+  // --- 1. Theme Toggling Logic ---
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  
+  // Check localStorage for saved theme preference
+  const savedTheme = localStorage.getItem("site-theme");
+  if (savedTheme === "corporate") {
+    document.body.classList.add("corporate-theme");
+  }
 
-  // 1. Highlight the active navigation link
+  // Toggle theme on button click
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("corporate-theme");
+      
+      // Save preference to localStorage
+      if (document.body.classList.contains("corporate-theme")) {
+        localStorage.setItem("site-theme", "corporate");
+      } else {
+        localStorage.setItem("site-theme", "cyberpunk");
+      }
+    });
+  }
+
+  // --- 2. Highlight the active navigation link ---
   const currentLocation = window.location.pathname;
   const navLinks = document.querySelectorAll("nav a");
 
@@ -13,24 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 2. Add a simple console greeting for recruiters inspecting your site
-  console.log("%cSYSTEM ONLINE: Welcome to the metacoder87 network.", "color: #00f3ff; font-size: 14px; font-weight: bold;");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  // 1. Highlight the active navigation link
-  const currentLocation = window.location.pathname;
-  const navLinks = document.querySelectorAll("nav a");
-
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentLocation.split("/").pop() ||
-      (currentLocation.endsWith("/") && link.getAttribute("href") === "index.html")) {
-      link.classList.add("active");
-    }
-  });
-
-  // 2. Typewriter Effect for Section Titles (with auto-stop)
+  // --- 3. Typewriter Effect for Section Titles (with auto-stop) ---
   const sectionTitles = document.querySelectorAll(".section-title");
 
   sectionTitles.forEach(title => {
@@ -57,5 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeWriter, 400);
   });
 
+  // --- 4. Add a simple console greeting for recruiters inspecting your site ---
   console.log("%cSYSTEM ONLINE: Welcome to the metacoder87 network.", "color: #39ff14; font-size: 14px; font-weight: bold;");
-});
+});

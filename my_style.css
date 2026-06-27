@@ -433,6 +433,178 @@ footer {
   animation: blink-cursor 1.5s infinite;
 }
 
+/* --- THEME TOGGLE BUTTON --- */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  position: relative;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+/* Default (Cyberpunk) state: off-white square */
+.theme-toggle-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #cbd5e0;
+  transition: all 0.4s ease;
+}
+
+/* Corporate state: dark circle with neon gradient */
+body.corporate-theme .theme-toggle-indicator {
+  border-radius: 50%;
+  background: #111;
+  box-shadow: 0 0 8px var(--neon-cyan), inset 0 0 4px var(--neon-pink);
+  border: 1px solid var(--neon-green);
+}
+
+/* --- CORPORATE THEME OVERRIDES --- */
+body.corporate-theme {
+  --bg-color: #f7fafc;
+  --surface-color: #ffffff;
+  --text-main: #2d3748;
+  --text-muted: #4a5568;
+  --neon-cyan: #3182ce;
+  --neon-pink: #e53e3e;
+  --neon-green: #38a169;
+  background-image: none;
+}
+
+body.corporate-theme h1,
+body.corporate-theme h2,
+body.corporate-theme h3 {
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+body.corporate-theme a:hover {
+  text-shadow: none;
+}
+
+body.corporate-theme nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+body.corporate-theme nav a {
+  font-family: var(--font-sans);
+  color: #4a5568;
+}
+
+body.corporate-theme nav a.active {
+  color: var(--neon-cyan);
+  text-shadow: none;
+}
+
+body.corporate-theme .section-title {
+  text-shadow: none;
+  border-left-color: var(--neon-cyan);
+  color: var(--text-main);
+}
+
+body.corporate-theme header h1 span {
+  text-shadow: none;
+}
+
+body.corporate-theme .about-grid {
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+body.corporate-theme .project-card {
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+body.corporate-theme .project-card:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+body.corporate-theme .project-card::before {
+  background: var(--neon-cyan);
+}
+
+body.corporate-theme .tech-tag {
+  background: #edf2f7;
+  color: #4a5568;
+  border-color: #cbd5e0;
+  font-family: var(--font-sans);
+}
+
+body.corporate-theme .submit-btn {
+  background: #3182ce;
+  color: #ffffff;
+  border-color: #3182ce;
+  text-shadow: none;
+  box-shadow: none;
+  font-family: var(--font-sans);
+  border-radius: 4px;
+}
+
+body.corporate-theme .submit-btn:hover {
+  background: #2b6cb0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+body.corporate-theme .contact-form input,
+body.corporate-theme .contact-form textarea {
+  background: #ffffff;
+  border-color: #cbd5e0;
+  color: #2d3748;
+  border-radius: 4px;
+}
+
+body.corporate-theme .contact-form input:focus,
+body.corporate-theme .contact-form textarea:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+body.corporate-theme footer {
+  border-top-color: #e2e8f0;
+}
+
+body.corporate-theme .social-links a:hover {
+  text-shadow: none;
+  color: var(--neon-cyan);
+}
+
+body.corporate-theme #design-tag img {
+  filter: invert(1);
+}
+
+body.corporate-theme #design-tag img:hover {
+  filter: invert(1) opacity(0.8);
+}
+
+body.corporate-theme .video-wrapper {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  box-shadow: none;
+}
+
+body.corporate-theme .typing-cursor {
+  border-right-color: var(--text-main);
+}
+
+body.corporate-theme .google-form-hacker iframe {
+  filter: none;
+  opacity: 1;
+}
+
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
   nav {
