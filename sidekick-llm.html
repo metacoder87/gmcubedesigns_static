@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <nav>
         <a href="index.html">&lt; PROJECTS /&gt;</a>
         <a href="team.html">&lt; PROFILE /&gt;</a>
@@ -29,15 +28,29 @@
 
         <div class="about-grid">
             <div class="video-wrapper">
-                <div class="video-placeholder">[ NO FEED DETECTED ]</div>
+                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
             </div>
 
             <div class="about-text">
-                <h3 style="color: var(--neon-green);">>_ ACCESS_RESTRICTED</h3>
-                <p>This project log is currently encrypted or undergoing compilation. Please check back later.</p>
+                <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
+                <p><strong>Sidekick LLM</strong> is a robust, privacy-first desktop application designed to bridge the gap between complex local AI models and user-friendly interfaces. By shifting inference from the cloud to the edge via <strong>Ollama</strong>, it guarantees absolute data sovereignty and offline availability.</p>
+                <p>Built as a unified desktop architecture using the <strong>Electron</strong> framework, Sidekick LLM demonstrates advanced full-stack engineering by securely sandboxing web views, establishing high-performance Inter-Process Communication (IPC) for token streaming, and implementing zero-latency localized search.</p>
 
-                <a href="index.html" class="submit-btn"
-                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">RETURN_TO_INDEX()</a>
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & SECURITY TOPOLOGY</h3>
+                <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <li><strong>Renderer Process (React 18 + Vite):</strong> Handles state transitions, UI rendering, and incremental streaming message updates. Strictly isolated from Node.js APIs.</li>
+                    <li><strong>Main Process (Node.js):</strong> Orchestrates local host integrations, managing direct HTTP interfacing with the Ollama daemon and executing file system operations.</li>
+                    <li><strong>IPC Security Bridge:</strong> A context-isolated preload script (<code>preload.cjs</code>) defines a narrow, strictly typed API, preventing Remote Code Execution (RCE) and XSS vulnerabilities from escaping the web view into the host OS.</li>
+                </ul>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
+                <p><strong>1. Reactive Token Streaming over IPC:</strong> Cloud LLMs stream tokens via Server-Sent Events (SSE) directly to the browser. In a desktop app, the main process must proxy the local LLM's HTTP chunked response. I engineered a streaming event pipeline over the Electron IPC bridge, piping generated tokens synchronously to React state to provide a low-latency, engaging UI without memory bloat or backpressure bottlenecks.</p>
+                <p><strong>2. Synchronous Database Performance:</strong> For single-tenant desktop applications, asynchronous database queries (Promises) introduce unnecessary V8 event loop overhead. I utilized <code>better-sqlite3</code>, relying on its C++ bindings to execute SQLite operations synchronously. This simplifies repository logic and drastically reduces query latency for chat history retrieval.</p>
+                <p><strong>3. High-Performance Local Search (FTS5):</strong> Managing massive local chat logs requires robust search capabilities. Instead of integrating a heavy local vector database, I utilized SQLite's <strong>FTS5 virtual tables</strong>. Triggers automatically index conversations and messages, providing zero-latency, full-text offline search capabilities directly within the SQL layer.</p>
+                <p><strong>4. Resilient Offline Architecture:</strong> Because edge computing depends on local hardware, daemons like Ollama can crash or be terminated. The application employs intelligent polling mechanisms and graceful degradation to monitor AI health, ensuring the user is immediately informed of daemon state changes without silent UI failures.</p>
+
+                <a href="https://github.com/metacoder87/sidekick_llm" class="submit-btn" target="_blank"
+                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
             </div>
         </div>
     </div>
@@ -48,5 +61,4 @@
 
     <script src="main.js"></script>
 </body>
-
 </html>
