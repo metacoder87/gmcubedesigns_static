@@ -11,12 +11,17 @@
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">&lt; PROJECTS /&gt;</a>
-        <a href="team.html">&lt; PROFILE /&gt;</a>
-        <a href="contact.html">&lt; CONTACT /&gt;</a>
-        <a href="https://github.com/metacoder87" target="_blank">&lt; GITHUB /&gt;</a>
-    <a href="docs/GaryMiller_resume_AI_ML_Eng.pdf" target="_blank">&lt; RESUME /&gt;</a>
+  <nav>
+    <button class="hamburger-btn" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">&lt; PROJECTS /&gt;</a>
+      <a href="team.html">&lt; PROFILE /&gt;</a>
+      <a href="contact.html">&lt; CONTACT /&gt;</a>
+      <a href="https://github.com/metacoder87" target="_blank">&lt; GITHUB /&gt;</a>
+      <a href="docs/GaryMiller_resume_AI_ML_Eng.pdf" target="_blank">&lt; RESUME /&gt;</a>
+    </div>
     <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
       <div class="theme-toggle-indicator"></div>
     </button>
@@ -63,9 +68,24 @@
         </div>
     </div>
 
-    <footer>
-        <p>SYSTEM.HALT() // © 2026 GARY MILLER [METACODER87]</p>
-    </footer>
+  <a href="https://www.linkedin.com/messaging/compose/?to=therealgarymiller" target="_blank" class="floating-chat-btn" aria-label="Direct Message">
+    <i class="fas fa-comment-dots"></i>
+  </a>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/therealgarymiller" target="_blank" title="LinkedIn" class="social-linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/metacoder87" target="_blank" title="GitHub" class="social-github"><i class="fab fa-github"></i></a>
+      <a href="https://stackoverflow.com/users/8031257/metag" target="_blank" title="StackOverflow" class="social-stackoverflow"><i class="fab fa-stack-overflow"></i></a>
+      <a href="https://medium.com/@AtlasAnomalous" target="_blank" title="Medium" class="social-medium"><i class="fab fa-medium"></i></a>
+    </div>
+    <p>SYSTEM.HALT() // © 2026 GARY MILLER [METACODER87]</p>
+    <div id="design-tag">
+      <a href="index.html">
+        <img src="img/gm_cubed_neon.png" alt="GM Cubed Designs Logo">
+      </a>
+    </div>
+  </footer>
 
     <script src="main.js"></script>
 </body>

@@ -24,9 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- 1.5. Hamburger Menu Logic ---
+  const hamburgerBtn = document.querySelector(".hamburger-btn");
+  const navLinksContainer = document.querySelector(".nav-links");
+
+  if (hamburgerBtn && navLinksContainer) {
+    hamburgerBtn.addEventListener("click", () => {
+      navLinksContainer.classList.toggle("active");
+    });
+  }
+
   // --- 2. Highlight the active navigation link ---
   const currentLocation = window.location.pathname;
-  const navLinks = document.querySelectorAll("nav a");
+  const navLinks = document.querySelectorAll(".nav-links a");
 
   navLinks.forEach(link => {
     // Check if the link's href matches the current path
