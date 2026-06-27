@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <nav>
         <a href="index.html">&lt; PROJECTS /&gt;</a>
         <a href="team.html">&lt; PROFILE /&gt;</a>
@@ -25,19 +24,33 @@
     </header>
 
     <div class="container" id="case-study">
-        <h2 class="section-title">SYS.LOG: Qdrant Search</h2>
+        <h2 class="section-title">SYS.LOG: Qdrant Search Console</h2>
 
         <div class="about-grid">
             <div class="video-wrapper">
-                <div class="video-placeholder">[ NO FEED DETECTED ]</div>
+                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
             </div>
 
             <div class="about-text">
-                <h3 style="color: var(--neon-green);">>_ ACCESS_RESTRICTED</h3>
-                <p>This project log is currently encrypted or undergoing compilation. Please check back later.</p>
+                <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
+                <p>The <strong>Qdrant Search Console</strong> is a sophisticated enterprise search application designed to process, embed, and query unstructured documents (PDFs, HTML, and Plain Text) using state-of-the-art Natural Language Processing (NLP).</p>
+                <p>As the lead AI Architect, I engineered this platform to bridge the gap between raw vector similarity search and Human-In-The-Loop (HITL) review. It elevates raw Approximate Nearest Neighbor (ANN) retrievals into a refined UI, abstracting chunk management and semantic embeddings behind a seamless, document-first search experience.</p>
 
-                <a href="index.html" class="submit-btn"
-                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">RETURN_TO_INDEX()</a>
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
+                <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <li><strong>Frontend (React + Vite + Tailwind):</strong> A highly responsive Single Page Application featuring specialized rendering engines like PDF.js for secure, native-feeling document viewing and precise auto-scrolling to semantic matches.</li>
+                    <li><strong>Backend (Python + FastAPI):</strong> A microservice layer managing the embedding engine (<code>sentence-transformers</code>) and enforcing strict validation contracts.</li>
+                    <li><strong>Vector & Relational Storage:</strong> Integrates <strong>Qdrant</strong> for fast persistent vector storage via Docker volumes, alongside <strong>SQLite</strong> to capture structured human feedback for future RAG optimization.</li>
+                </ul>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
+                <p><strong>1. Intelligent Hit Aggregation:</strong> Raw vector searches inherently return scattered text chunks from the same document, causing high cognitive load. I architected a custom aggregation algorithm that groups chunk hits by <code>doc_id</code>, calculates average similarity scores, and sorts the final payload, transforming raw ML outputs into clean, document-level insights.</p>
+                <p><strong>2. Deterministic Data Seeding for CI/CD:</strong> AI applications are notoriously difficult to test reliably. I developed a deterministic seeding utility that programmatically drops, recreates, and seeds the Qdrant collection with an exact multiphase dataset. Controlled by environment variables, this guarantees reproducible states for automated CI/CD pipelines.</p>
+                <p><strong>3. Human-in-the-Loop (HITL) Feedback Gates:</strong> To establish a continuous learning loop for fine-tuning embedding models, I designed a strict feedback mechanism. The UI captures binary search utility, but enforces a mandatory contextual explanation if a user downvotes a result, ensuring high-quality, actionable data for ML optimization.</p>
+                <p><strong>4. Safe Snippet Rendering & Navigation:</strong> Processing varied document formats (especially raw HTML) introduces XSS security risks. I implemented a robust sanitization pipeline that securely extracts <= 50-word context snippets, coupled with chunk navigation arrows that auto-scroll users to exact semantic matches within the full text.</p>
+
+                <a href="https://github.com/metacoder87/qdrant-search-project" class="submit-btn" target="_blank"
+                    style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
             </div>
         </div>
     </div>
@@ -48,5 +61,4 @@
 
     <script src="main.js"></script>
 </body>
-
 </html>
