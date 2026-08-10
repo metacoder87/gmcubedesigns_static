@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="my_style.css">
+    <meta name="description" content="Qdrant Search Console is Gary Miller's full-stack semantic document search system with vector retrieval, document-level aggregation, deterministic test data, and human feedback.">
+    <link rel="stylesheet" href="my_style.css?v=20260810">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
     <title>Qdrant Search | Gary Miller</title>
     <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
@@ -29,21 +30,33 @@
 
     <header>
         <h1>Gary <span>Miller</span></h1>
-        <p>PRINCIPAL_AI.ARCHITECT // SENIOR_AI.ENG // QUANT.DEV</p>
+        <p>LEAD_APPLIED_AI.ENG // FULL_STACK_AI.SYSTEMS // QUANT.DEV</p>
     </header>
 
     <div class="container" id="case-study">
         <h2 class="section-title">SYS.LOG: Qdrant Search Console</h2>
 
         <div class="about-grid">
-            <div class="video-wrapper">
-                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
-            </div>
+            <!-- Add a video embed here and remove the hidden attribute when the walkthrough is ready. -->
+            <div class="video-wrapper" hidden data-video-slot aria-label="Qdrant Search walkthrough video"></div>
+
+            <!-- Add 3-5 key screenshots inside this section and remove hidden when ready. -->
+            <section class="screenshot-gallery" hidden data-screenshot-gallery aria-label="Qdrant Search screenshots">
+                <h3>&gt;_ SYSTEM_SCREENSHOTS</h3>
+                <div class="screenshot-grid">
+                    <!--
+                    <figure class="screenshot-card">
+                        <img src="img/projects/qdrant-search-results.png" alt="Qdrant Search document results and feedback interface" loading="lazy">
+                        <figcaption>Document-level semantic results with match navigation and review feedback.</figcaption>
+                    </figure>
+                    -->
+                </div>
+            </section>
 
             <div class="about-text">
                 <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
-                <p>The <strong>Qdrant Search Console</strong> is a sophisticated enterprise search application designed to process, embed, and query unstructured documents (PDFs, HTML, and Plain Text) using state-of-the-art Natural Language Processing (NLP).</p>
-                <p>As the lead AI Architect, I engineered this platform to bridge the gap between raw vector similarity search and Human-In-The-Loop (HITL) review. It elevates raw Approximate Nearest Neighbor (ANN) retrievals into a refined UI, abstracting chunk management and semantic embeddings behind a seamless, document-first search experience.</p>
+                <p>The <strong>Qdrant Search Console</strong> is a full-stack semantic document search and review system for PDFs, HTML, and plain text. It combines local sentence-transformer embeddings with persistent Qdrant storage and a focused React interface for inspecting retrieved evidence.</p>
+                <p>The core product decision was to hide chunk-level retrieval mechanics without hiding the evidence. Raw nearest-neighbor matches are aggregated into ranked document results, while reviewers can navigate matching passages and record structured feedback for retrieval evaluation.</p>
 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
                 <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
@@ -54,9 +67,12 @@
 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
                 <p><strong>1. Intelligent Hit Aggregation:</strong> Raw vector searches inherently return scattered text chunks from the same document, causing high cognitive load. I architected a custom aggregation algorithm that groups chunk hits by <code>doc_id</code>, calculates average similarity scores, and sorts the final payload, transforming raw ML outputs into clean, document-level insights.</p>
-                <p><strong>2. Deterministic Data Seeding for CI/CD:</strong> AI applications are notoriously difficult to test reliably. I developed a deterministic seeding utility that programmatically drops, recreates, and seeds the Qdrant collection with an exact multiphase dataset. Controlled by environment variables, this guarantees reproducible states for automated CI/CD pipelines.</p>
+                <p><strong>2. Deterministic Data Seeding for CI/CD:</strong> AI applications are notoriously difficult to test reliably. I developed a deterministic seeding utility that programmatically drops, recreates, and seeds the Qdrant collection with an exact multiphase dataset. Controlled by environment variables, this produces reproducible states for automated CI/CD pipelines.</p>
                 <p><strong>3. Human-in-the-Loop (HITL) Feedback Gates:</strong> To establish a continuous learning loop for fine-tuning embedding models, I designed a strict feedback mechanism. The UI captures binary search utility, but enforces a mandatory contextual explanation if a user downvotes a result, ensuring high-quality, actionable data for ML optimization.</p>
                 <p><strong>4. Safe Snippet Rendering & Navigation:</strong> Processing varied document formats (especially raw HTML) introduces XSS security risks. I implemented a robust sanitization pipeline that securely extracts <= 50-word context snippets, coupled with chunk navigation arrows that auto-scroll users to exact semantic matches within the full text.</p>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ENGINEERING SIGNAL</h3>
+                <p>Qdrant Search demonstrates an end-to-end retrieval pipeline: embedding generation, persistent vector storage, aggregation and ranking logic, safe document rendering, feedback contracts, deterministic environments, and frontend/backend tests.</p>
 
                 <a href="https://github.com/metacoder87/qdrant-search-project" class="submit-btn" target="_blank"
                     style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>

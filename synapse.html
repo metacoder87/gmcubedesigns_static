@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SYNAPSE is Gary Miller's local-first job intelligence platform for multi-source ingestion, deterministic screening, semantic ranking, and fact-checked agentic research.">
+  <link rel="stylesheet" href="my_style.css?v=20260810">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+  <title>SYNAPSE | Gary Miller</title>
+  <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
+</head>
+
+<body>
+  <nav>
+    <button class="hamburger-btn" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">&lt; PROJECTS /&gt;</a>
+      <a href="team.html">&lt; PROFILE /&gt;</a>
+      <a href="contact.html">&lt; CONTACT /&gt;</a>
+      <a href="https://github.com/metacoder87" target="_blank">&lt; GITHUB /&gt;</a>
+      <a href="docs/GaryMiller_resume_AI_ML_Eng.pdf" target="_blank">&lt; RESUME /&gt;</a>
+    </div>
+    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+      <div class="theme-toggle-indicator"></div>
+    </button>
+  </nav>
+
+  <header>
+    <h1>Gary <span>Miller</span></h1>
+    <p>LEAD_APPLIED_AI.ENG // FULL_STACK_AI.SYSTEMS // QUANT.DEV</p>
+  </header>
+
+  <div class="container" id="case-study">
+    <h2 class="section-title">SYS.LOG: Project SYNAPSE</h2>
+
+    <div class="about-grid">
+      <!-- Add a video embed here and remove the hidden attribute when the walkthrough is ready. -->
+      <div class="video-wrapper" hidden data-video-slot aria-label="SYNAPSE walkthrough video"></div>
+
+      <!-- Add 3-5 key screenshots inside this section and remove hidden when ready. -->
+      <section class="screenshot-gallery" hidden data-screenshot-gallery aria-label="SYNAPSE screenshots">
+        <h3>&gt;_ SYSTEM_SCREENSHOTS</h3>
+        <div class="screenshot-grid">
+          <!--
+          <figure class="screenshot-card">
+            <img src="img/projects/synapse-dashboard.png" alt="SYNAPSE ranked job intelligence dashboard" loading="lazy">
+            <figcaption>Ranked opportunity pipeline with fit signals and job lifecycle controls.</figcaption>
+          </figure>
+          -->
+        </div>
+      </section>
+
+      <div class="about-text">
+        <h3 style="color: var(--neon-green);">&gt;_ EXECUTIVE SUMMARY</h3>
+        <p><strong>SYNAPSE</strong> is a privacy-first job intelligence platform that converts a fragmented search process into an inspectable, repeatable decision pipeline. It ingests opportunities from six source types, normalizes them into a shared model, applies deterministic screening rules, and ranks the surviving roles against a candidate profile using semantic similarity.</p>
+        <p>For high-value opportunities, SYNAPSE can dispatch a local three-agent research crew through <strong>Ollama</strong> to build a company dossier while keeping the candidate's resume, preferences, research history, and decision data on local infrastructure. The system combines AI-assisted analysis with explicit human review rather than allowing a model to make untraceable career decisions.</p>
+
+        <h3 style="color: var(--neon-green); margin-top: 2rem;">&gt;_ ARCHITECTURE & PRODUCT FLOW</h3>
+        <ul class="case-study-list">
+          <li><strong>Ingestion:</strong> Adapter-driven connectors normalize USAJobs, Adzuna, Jooble, Greenhouse, Lever, and RSS data into a unified job model.</li>
+          <li><strong>Deterministic Screening:</strong> Configurable include and exclude rules reject known mismatches before embeddings or LLM inference consume resources.</li>
+          <li><strong>Semantic Ranking:</strong> MiniLM embeddings compare each role with the candidate profile, while PostgreSQL remains the system of record and ChromaDB stores aligned vectors under shared identifiers.</li>
+          <li><strong>Agentic Research:</strong> A Scout, Networker, and Fact-Checker collaborate through CrewAI and Ollama to assemble an evidence-oriented company dossier on demand.</li>
+          <li><strong>Operations:</strong> A Next.js dashboard manages the opportunity lifecycle, configuration, exports, and observability across the FastAPI and worker services.</li>
+        </ul>
+
+        <h3 style="color: var(--neon-green); margin-top: 2rem;">&gt;_ CORE ENGINEERING CHALLENGES</h3>
+        <p><strong>1. Normalizing Inconsistent Job Sources:</strong> Each upstream source represents titles, locations, compensation, closing dates, and identifiers differently. I isolated those differences behind adapters and a shared domain model so downstream filtering, ranking, and lifecycle logic operate on one stable contract.</p>
+        <p><strong>2. Guardrails Before Generative AI:</strong> LLM judgment is expensive and difficult to audit. SYNAPSE runs a deterministic kill switch first, records why a role was excluded, and only applies semantic or agentic analysis after hard requirements pass.</p>
+        <p><strong>3. Keeping Relational and Vector State Consistent:</strong> PostgreSQL and ChromaDB serve different query patterns but refer to the same opportunities. Shared UUIDs and coordinated purge operations keep structured records, embeddings, and derived artifacts synchronized throughout the job lifecycle.</p>
+        <p><strong>4. Enforcing Market Freshness:</strong> Closing-date expiry, periodic URL health checks, stale-content detection, and coordinated weekly purges prevent expired roles from accumulating as misleading recommendations.</p>
+        <p><strong>5. Making Agent Output Inspectable:</strong> Research is delivered as a dossier for human review, with separate agent responsibilities and operational traces that make the workflow easier to evaluate, debug, and improve.</p>
+
+        <h3 style="color: var(--neon-green); margin-top: 2rem;">&gt;_ ENGINEERING SIGNAL</h3>
+        <p>SYNAPSE demonstrates end-to-end applied AI ownership: external data integration, deterministic business rules, vector retrieval, local agent orchestration, full-stack product delivery, containerized services, automated testing, and production-shaped observability.</p>
+
+        <a href="https://github.com/metacoder87/SYNAPSE" class="submit-btn" target="_blank"
+          style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.linkedin.com/messaging/compose/?to=therealgarymiller" target="_blank" class="floating-chat-btn" aria-label="Direct Message">
+    <i class="fas fa-comment-dots"></i>
+  </a>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/therealgarymiller" target="_blank" title="LinkedIn" class="social-linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/metacoder87" target="_blank" title="GitHub" class="social-github"><i class="fab fa-github"></i></a>
+      <a href="https://stackoverflow.com/users/8031257/metag" target="_blank" title="StackOverflow" class="social-stackoverflow"><i class="fab fa-stack-overflow"></i></a>
+      <a href="https://medium.com/@AtlasAnomalous" target="_blank" title="Medium" class="social-medium"><i class="fab fa-medium"></i></a>
+    </div>
+    <p>SYSTEM.HALT() // © 2026 GARY MILLER [METACODER87]</p>
+    <div id="design-tag">
+      <a href="index.html">
+        <img src="img/gm_cubed_neon.png" alt="GM Cubed Designs Logo">
+      </a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

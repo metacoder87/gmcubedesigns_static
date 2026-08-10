@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="my_style.css">
+  <meta name="description" content="Gary Miller is a Lead Applied AI Engineer and full-stack builder specializing in local-first AI, RAG, agentic systems, and quantitative software.">
+  <link rel="stylesheet" href="my_style.css?v=20260810">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
-  <title>AI Architect | Gary Miller</title>
+  <title>Applied AI Engineer | Gary Miller</title>
   <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
 </head>
 
@@ -30,34 +31,57 @@
 
   <header>
     <h1>Gary <span>Miller</span></h1>
-    <p>PRINCIPAL_AI.ARCHITECT // SENIOR_AI.ENG // QUANT.DEV</p>
+    <p>LEAD_APPLIED_AI.ENG // FULL_STACK_AI.SYSTEMS // QUANT.DEV</p>
   </header>
 
   <div class="container" id="projects">
     <h2 class="section-title">DIR: /Latest_Projects</h2>
     <div class="projects-grid">
 
-      <div class="project-card clickable-card" onclick="window.location.href='holdem-trainer.html'">
+      <div class="project-card project-card--featured clickable-card" onclick="window.location.href='sidekick-llm.html'">
+        <div class="project-kicker">FLAGSHIP_01 // DESKTOP_AI</div>
         <h3 class="project-title">
-          Holdem-Trainer
-          <a href="https://github.com/metacoder87/Holdem-Trainer" target="_blank" title="View Repository"
+          Sidekick LLM
+          <a href="https://github.com/metacoder87/sidekick_llm" target="_blank" title="View Repository"
             class="repo-link" onclick="event.stopPropagation();">
             <i class="fab fa-github"></i>
           </a>
         </h3>
-        <p class="project-desc">A local-first quantitative poker engine and trainer. Features real-time EV decision
-          grading, CFR+ game-theory solvers, and Monte Carlo range equity simulations.</p>
+        <p class="project-desc">A privacy-first desktop knowledge system for local LLMs, combining Expert vaults,
+          federated retrieval, source-grounded answers, durable memory, and portable local data.</p>
         <div class="tech-stack">
-          <span class="tech-tag">Quant Modeling</span>
-          <span class="tech-tag">CFR+ Solvers</span>
-          <span class="tech-tag">Game Theory</span>
+          <span class="tech-tag">Local LLMs</span>
+          <span class="tech-tag">Federated RAG</span>
+          <span class="tech-tag">Electron</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Ollama</span>
+          <span class="tech-tag">SQLite</span>
+        </div>
+      </div>
+
+      <div class="project-card project-card--featured clickable-card" onclick="window.location.href='synapse.html'">
+        <div class="project-kicker">FLAGSHIP_02 // AGENTIC_AI</div>
+        <h3 class="project-title">
+          SYNAPSE
+          <a href="https://github.com/metacoder87/SYNAPSE" target="_blank" title="View Repository"
+            class="repo-link" onclick="event.stopPropagation();">
+            <i class="fab fa-github"></i>
+          </a>
+        </h3>
+        <p class="project-desc">A local-first job intelligence platform that normalizes six data sources, applies
+          deterministic screening, ranks semantic fit, and produces fact-checked company dossiers.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Multi-Agent Systems</span>
+          <span class="tech-tag">Semantic Ranking</span>
+          <span class="tech-tag">Human-in-the-Loop</span>
           <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Next.js</span>
           <span class="tech-tag">PostgreSQL</span>
-          <span class="tech-tag">Docker</span>
         </div>
       </div>
 
       <div class="project-card clickable-card" onclick="window.location.href='investment-matrix.html'">
+        <div class="project-kicker">SYSTEMS_03 // FINTECH</div>
         <h3 class="project-title">
           Investment Matrix
           <a href="https://github.com/metacoder87/investment_matrix" target="_blank" title="View Repository"
@@ -65,11 +89,11 @@
             <i class="fab fa-github"></i>
           </a>
         </h3>
-        <p class="project-desc">Self-hosted crypto market research & automated paper-trading platform. Features
-          multi-exchange live tick streaming and historical backtesting.</p>
+        <p class="project-desc">An event-driven cryptocurrency research and paper-trading platform with live exchange
+          ingestion, backtesting, portfolio workflows, and locally hosted AI risk analysis.</p>
         <div class="tech-stack">
-          <span class="tech-tag">Algorithmic Trading</span>
-          <span class="tech-tag">Event-Driven Arch</span>
+          <span class="tech-tag">Event-Driven Systems</span>
+          <span class="tech-tag">Quant Research</span>
           <span class="tech-tag">TimescaleDB</span>
           <span class="tech-tag">FastAPI</span>
           <span class="tech-tag">Redis</span>
@@ -77,27 +101,29 @@
         </div>
       </div>
 
-      <div class="project-card clickable-card" onclick="window.location.href='content-writers.html'">
+      <div class="project-card clickable-card" onclick="window.location.href='holdem-trainer.html'">
+        <div class="project-kicker">SYSTEMS_04 // ALGORITHMS</div>
         <h3 class="project-title">
-          Content Writers
-          <a href="https://github.com/metacoder87/content_writers" target="_blank" title="View Repository"
+          Holdem-Trainer
+          <a href="https://github.com/metacoder87/Holdem-Trainer" target="_blank" title="View Repository"
             class="repo-link" onclick="event.stopPropagation();">
             <i class="fab fa-github"></i>
           </a>
         </h3>
-        <p class="project-desc">A full-stack, local AI article studio. Operates purely on a local machine, powered by
-          CrewAI autonomous agents for end-to-end content generation.</p>
+        <p class="project-desc">A quantitative poker engine and training platform with Monte Carlo equity, EV and ICM
+          analysis, CFR+ solving, adaptive drills, and production-shaped observability.</p>
         <div class="tech-stack">
-          <span class="tech-tag">Multi-Agent Systems</span>
-          <span class="tech-tag">Autonomous Orchestration</span>
-          <span class="tech-tag">CrewAI</span>
-          <span class="tech-tag">Ollama</span>
-          <span class="tech-tag">React/Vite</span>
-          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Quant Modeling</span>
+          <span class="tech-tag">CFR+ Solvers</span>
+          <span class="tech-tag">Dynamic Programming</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Docker</span>
         </div>
       </div>
 
       <div class="project-card clickable-card" onclick="window.location.href='qdrant-search.html'">
+        <div class="project-kicker">SYSTEMS_05 // RETRIEVAL</div>
         <h3 class="project-title">
           Qdrant Search
           <a href="https://github.com/metacoder87/qdrant-search-project" target="_blank" title="View Repository"
@@ -105,11 +131,11 @@
             <i class="fab fa-github"></i>
           </a>
         </h3>
-        <p class="project-desc">A full-stack, locally deployable semantic search console built for secure document
-          retrieval and local AI model evaluation.</p>
+        <p class="project-desc">A document-first semantic search console that turns chunk-level vector matches into
+          ranked document results with deterministic seeding and human feedback capture.</p>
         <div class="tech-stack">
           <span class="tech-tag">Vector Search</span>
-          <span class="tech-tag">RAG Architecture</span>
+          <span class="tech-tag">Retrieval Evaluation</span>
           <span class="tech-tag">Qdrant</span>
           <span class="tech-tag">FastAPI</span>
           <span class="tech-tag">TypeScript</span>
@@ -118,6 +144,7 @@
       </div>
 
       <div class="project-card clickable-card" onclick="window.location.href='learning-tree.html'">
+        <div class="project-kicker">SYSTEMS_06 // IMMERSIVE_AI</div>
         <h3 class="project-title">
           Learning Tree
           <a href="https://github.com/metacoder87/learning_tree" target="_blank" title="View Repository"
@@ -125,34 +152,14 @@
             <i class="fab fa-github"></i>
           </a>
         </h3>
-        <p class="project-desc">A local-first 3D educational platform featuring real-time AI lesson streaming via
-          localized language models.</p>
+        <p class="project-desc">A local-first AI learning platform that connects streamed lesson generation,
+          backend-scored mastery, durable learner state, and an interactive 3D curriculum interface.</p>
         <div class="tech-stack">
           <span class="tech-tag">Local LLM Streaming</span>
-          <span class="tech-tag">Generative AI</span>
-          <span class="tech-tag">WebGL / R3F</span>
+          <span class="tech-tag">Stateful Learning</span>
+          <span class="tech-tag">React Three Fiber</span>
           <span class="tech-tag">FastAPI</span>
           <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">SQLite</span>
-        </div>
-      </div>
-
-      <div class="project-card clickable-card" onclick="window.location.href='sidekick-llm.html'">
-        <h3 class="project-title">
-          Sidekick LLM
-          <a href="https://github.com/metacoder87/sidekick_llm" target="_blank" title="View Repository"
-            class="repo-link" onclick="event.stopPropagation();">
-            <i class="fab fa-github"></i>
-          </a>
-        </h3>
-        <p class="project-desc">A privacy-first desktop AI client featuring seamless Ollama integration for secure,
-          localized LLM interactions without cloud APIs.</p>
-        <div class="tech-stack">
-          <span class="tech-tag">Local Sovereign AI</span>
-          <span class="tech-tag">Privacy-First LLMs</span>
-          <span class="tech-tag">Electron</span>
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">JavaScript</span>
           <span class="tech-tag">SQLite</span>
         </div>
       </div>

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="my_style.css">
+    <meta name="description" content="The Learning Tree is Gary Miller's local-first AI education platform connecting streamed lessons, backend-scored mastery, durable learner state, and a 3D curriculum interface.">
+    <link rel="stylesheet" href="my_style.css?v=20260810">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
     <title>Learning Tree | Gary Miller</title>
     <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
@@ -29,21 +30,33 @@
 
     <header>
         <h1>Gary <span>Miller</span></h1>
-        <p>PRINCIPAL_AI.ARCHITECT // SENIOR_AI.ENG // QUANT.DEV</p>
+        <p>LEAD_APPLIED_AI.ENG // FULL_STACK_AI.SYSTEMS // QUANT.DEV</p>
     </header>
 
     <div class="container" id="case-study">
         <h2 class="section-title">SYS.LOG: Learning Tree</h2>
 
         <div class="about-grid">
-            <div class="video-wrapper">
-                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
-            </div>
+            <!-- Add a video embed here and remove the hidden attribute when the walkthrough is ready. -->
+            <div class="video-wrapper" hidden data-video-slot aria-label="Learning Tree walkthrough video"></div>
+
+            <!-- Add 3-5 key screenshots inside this section and remove hidden when ready. -->
+            <section class="screenshot-gallery" hidden data-screenshot-gallery aria-label="Learning Tree screenshots">
+                <h3>&gt;_ SYSTEM_SCREENSHOTS</h3>
+                <div class="screenshot-grid">
+                    <!--
+                    <figure class="screenshot-card">
+                        <img src="img/projects/learning-tree-canopy.png" alt="Learning Tree interactive 3D curriculum canopy" loading="lazy">
+                        <figcaption>The 3D canopy projects persisted mastery state into an explorable curriculum.</figcaption>
+                    </figure>
+                    -->
+                </div>
+            </section>
 
             <div class="about-text">
                 <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
-                <p><strong>The Learning Tree</strong> is a local-first AI education application centered around an interactive 3D canopy. Unlike shallow prompt wrappers that merely generate text, this platform treats AI output as a highly constrained subsystem to solve the fundamental challenges of automated education: learner state persistence, measurable mastery, and strict data privacy.</p>
-                <p>Designed for offline and privacy-conscious environments, it integrates a deterministic curriculum engine with dynamic local inference, ensuring the user retains absolute control over their children's learning data without relying on hosted cloud APIs.</p>
+                <p><strong>The Learning Tree</strong> is a local-first AI education platform centered on an interactive 3D canopy. The system connects model-generated lessons to persistent learner profiles, backend-scored challenges, mastery progression, and a visual curriculum that changes with the learner's state.</p>
+                <p>Designed for privacy-conscious environments, it combines deterministic curriculum contracts with local Ollama inference so profiles, lesson history, assessment results, and mastery data remain on infrastructure controlled by the user.</p>
 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
                 <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
@@ -57,6 +70,9 @@
                 <p><strong>2. Structured Curriculum Contracts:</strong> Raw LLM text is a liability in education. If a model hallucinates inconsistent quiz answers, the UI breaks. I designed a rigid validation boundary using Pydantic schemas. The model must produce a <code>LessonPackage</code> with required teaching sequences, guided practice, and backend-scored answer keys, or the generation is rejected.</p>
                 <p><strong>3. Streaming Responsiveness via SSE:</strong> To maintain UI fluidity during slow local inference, I decoupled generation from rendering. The lesson reader opens immediately with a provisional state, and a Server-Sent Events (SSE) stream incrementally pushes JSON state transitions (<code>start</code>, <code>token</code>, <code>replace</code>, <code>complete</code>), providing a recoverable state machine without the heavy overhead of WebSockets.</p>
                 <p><strong>4. 3D Visual Mastery Projection:</strong> The 3D canopy is not merely decorative; it is a live reflection of database state. A completed challenge idempotently updates the <code>profile_leaf_progress</code> table, triggering an API refresh that visually rejuvenates the tree branch, explicitly linking backend assessment logic to frontend 3D rendering.</p>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ENGINEERING SIGNAL</h3>
+                <p>The Learning Tree demonstrates AI product design beyond text generation: structured domain contracts, SSE state machines, recovery paths, relational integrity, profile-specific progression, backend assessment, accessible interaction goals, and a data-driven 3D frontend.</p>
 
                 <a href="https://github.com/metacoder87/learning_tree" class="submit-btn" target="_blank"
                     style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>

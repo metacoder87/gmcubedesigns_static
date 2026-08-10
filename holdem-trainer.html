@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="my_style.css">
+    <meta name="description" content="Holdem-Trainer is Gary Miller's quantitative poker engine and training platform for EV analysis, Monte Carlo equity, ICM, CFR+, adaptive drills, and observable full-stack delivery.">
+    <link rel="stylesheet" href="my_style.css?v=20260810">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
     <title>Holdem-Trainer | Gary Miller</title>
     <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
@@ -29,21 +30,33 @@
 
     <header>
         <h1>Gary <span>Miller</span></h1>
-        <p>PRINCIPAL_AI.ARCHITECT // SENIOR_AI.ENG // QUANT.DEV</p>
+        <p>LEAD_APPLIED_AI.ENG // FULL_STACK_AI.SYSTEMS // QUANT.DEV</p>
     </header>
 
     <div class="container" id="case-study">
         <h2 class="section-title">SYS.LOG: Holdem-Trainer (PyHoldem Pro)</h2>
 
         <div class="about-grid">
-            <div class="video-wrapper">
-                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
-            </div>
+            <!-- Add a video embed here and remove the hidden attribute when the walkthrough is ready. -->
+            <div class="video-wrapper" hidden data-video-slot aria-label="Holdem-Trainer walkthrough video"></div>
+
+            <!-- Add 3-5 key screenshots inside this section and remove hidden when ready. -->
+            <section class="screenshot-gallery" hidden data-screenshot-gallery aria-label="Holdem-Trainer screenshots">
+                <h3>&gt;_ SYSTEM_SCREENSHOTS</h3>
+                <div class="screenshot-grid">
+                    <!--
+                    <figure class="screenshot-card">
+                        <img src="img/projects/holdem-trainer-table.png" alt="Holdem-Trainer gameplay and EV analysis interface" loading="lazy">
+                        <figcaption>Real-time gameplay, decision grading, and quantitative analysis.</figcaption>
+                    </figure>
+                    -->
+                </div>
+            </section>
 
             <div class="about-text">
                 <h3 style="color: var(--neon-green);">>_ MISSION_OBJECTIVE</h3>
                 <p>In competitive Texas Hold'em poker, profitability is dictated by identifying and patching marginal expected value (EV) leaks. Traditional solver-grade software suffers from high barriers to entry, steep learning curves, and critical data privacy concerns—requiring users to upload proprietary hand histories to third-party databases.</p>
-                <p><strong>PyHoldem Pro</strong> addresses this by delivering an open-source, local-first, highly integrated gameplay simulator and automated coaching assistant. It provides real-time EV-based grading, Bayesian playing-style classifications, and spaced-repetition training drills with absolute local data privacy.</p>
+                <p><strong>PyHoldem Pro</strong> addresses this with a local-first gameplay simulator, quantitative engine, and automated coaching workflow. It combines real-time EV-based grading, Bayesian playing-style classification, and spaced-repetition drills while keeping hand histories and training data under the player's control.</p>
                 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & STACK</h3>
                 <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
@@ -59,6 +72,9 @@
 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ FUTURE ROADMAP</h3>
                 <p>Integration of Celery and Redis to handle CPU-intensive Counterfactual Regret Minimization (CFR+) solving outside the web request cycle, alongside an automated study scheduler targeting the user's highest EV-loss nodes.</p>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ENGINEERING SIGNAL</h3>
+                <p>The repository pairs algorithmic depth with full-stack delivery: Monte Carlo and exact-enumeration engines, memoized ICM analysis, server-owned validation, persistent training state, WebSocket workflows, Docker orchestration, Prometheus/Grafana observability, and more than 630 passing tests across core behavior.</p>
 
                 <a href="https://github.com/metacoder87/Holdem-Trainer" class="submit-btn" target="_blank"
                     style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>

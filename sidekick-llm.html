@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="my_style.css">
+    <meta name="description" content="Sidekick LLM is Gary Miller's privacy-first Electron knowledge system for local models, federated RAG, durable memory, citations, and portable user-owned data.">
+    <link rel="stylesheet" href="my_style.css?v=20260810">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
     <title>Sidekick LLM | Gary Miller</title>
     <link rel="icon" type="image/png" href="img/gm_cubed_neon.png">
@@ -29,34 +30,51 @@
 
     <header>
         <h1>Gary <span>Miller</span></h1>
-        <p>PRINCIPAL_AI.ARCHITECT // SENIOR_AI.ENG // QUANT.DEV</p>
+        <p>LEAD_APPLIED_AI.ENG // FULL_STACK_AI.SYSTEMS // QUANT.DEV</p>
     </header>
 
     <div class="container" id="case-study">
         <h2 class="section-title">SYS.LOG: Sidekick LLM</h2>
 
         <div class="about-grid">
-            <div class="video-wrapper">
-                <div class="video-placeholder">[ INITIALIZING VIDEO FEED... ]</div>
-            </div>
+            <!-- Add a video embed here and remove the hidden attribute when the walkthrough is ready. -->
+            <div class="video-wrapper" hidden data-video-slot aria-label="Sidekick LLM walkthrough video"></div>
+
+            <!-- Add 3-5 key screenshots inside this section and remove hidden when ready. -->
+            <section class="screenshot-gallery" hidden data-screenshot-gallery aria-label="Sidekick LLM screenshots">
+                <h3>&gt;_ SYSTEM_SCREENSHOTS</h3>
+                <div class="screenshot-grid">
+                    <!--
+                    <figure class="screenshot-card">
+                        <img src="img/projects/sidekick-expert-vaults.png" alt="Sidekick LLM Expert vault interface" loading="lazy">
+                        <figcaption>Expert vaults combine private sources, retrieval, and grounded conversations.</figcaption>
+                    </figure>
+                    -->
+                </div>
+            </section>
 
             <div class="about-text">
                 <h3 style="color: var(--neon-green);">>_ EXECUTIVE SUMMARY</h3>
-                <p><strong>Sidekick LLM</strong> is a robust, privacy-first desktop application designed to bridge the gap between complex local AI models and user-friendly interfaces. By shifting inference from the cloud to the edge via <strong>Ollama</strong>, it guarantees absolute data sovereignty and offline availability.</p>
-                <p>Built as a unified desktop architecture using the <strong>Electron</strong> framework, Sidekick LLM demonstrates advanced full-stack engineering by securely sandboxing web views, establishing high-performance Inter-Process Communication (IPC) for token streaming, and implementing zero-latency localized search.</p>
+                <p><strong>Sidekick LLM</strong> is a privacy-first desktop knowledge system built around a durable corpus the user owns. It combines persistent conversations, compounding memory, source citations, and AI Expert vaults trained on private documents and curated research.</p>
+                <p>The application runs inference through <strong>Ollama</strong> and keeps chats, embeddings, documents, notes, and settings on the user's machine. Its <strong>Electron</strong> architecture connects a sandboxed React interface to local model, storage, search, migration, and export services through a narrow IPC boundary.</p>
 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ ARCHITECTURE & SECURITY TOPOLOGY</h3>
                 <ul style="color: #aaa; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.6;">
                     <li><strong>Renderer Process (React 18 + Vite):</strong> Handles state transitions, UI rendering, and incremental streaming message updates. Strictly isolated from Node.js APIs.</li>
-                    <li><strong>Main Process (Node.js):</strong> Orchestrates local host integrations, managing direct HTTP interfacing with the Ollama daemon and executing file system operations.</li>
-                    <li><strong>IPC Security Bridge:</strong> A context-isolated preload script (<code>preload.cjs</code>) defines a narrow, strictly typed API, preventing Remote Code Execution (RCE) and XSS vulnerabilities from escaping the web view into the host OS.</li>
+                    <li><strong>Main Process (Node.js):</strong> Orchestrates Ollama communication, persistence, document ingestion, retrieval, migration, and user-data operations.</li>
+                    <li><strong>IPC Security Bridge:</strong> A context-isolated preload script (<code>preload.cjs</code>) exposes a narrow application API while keeping Node.js capabilities outside the renderer.</li>
+                    <li><strong>Knowledge Layer:</strong> SQLite, FTS5, embeddings, and per-Expert vaults support conversation search, federated retrieval, citations, memory recall, and portable corpus exports.</li>
                 </ul>
 
                 <h3 style="color: var(--neon-green); margin-top: 2rem;">>_ CORE ENGINEERING CHALLENGES</h3>
-                <p><strong>1. Reactive Token Streaming over IPC:</strong> Cloud LLMs stream tokens via Server-Sent Events (SSE) directly to the browser. In a desktop app, the main process must proxy the local LLM's HTTP chunked response. I engineered a streaming event pipeline over the Electron IPC bridge, piping generated tokens synchronously to React state to provide a low-latency, engaging UI without memory bloat or backpressure bottlenecks.</p>
-                <p><strong>2. Synchronous Database Performance:</strong> For single-tenant desktop applications, asynchronous database queries (Promises) introduce unnecessary V8 event loop overhead. I utilized <code>better-sqlite3</code>, relying on its C++ bindings to execute SQLite operations synchronously. This simplifies repository logic and drastically reduces query latency for chat history retrieval.</p>
-                <p><strong>3. High-Performance Local Search (FTS5):</strong> Managing massive local chat logs requires robust search capabilities. Instead of integrating a heavy local vector database, I utilized SQLite's <strong>FTS5 virtual tables</strong>. Triggers automatically index conversations and messages, providing zero-latency, full-text offline search capabilities directly within the SQL layer.</p>
-                <p><strong>4. Resilient Offline Architecture:</strong> Because edge computing depends on local hardware, daemons like Ollama can crash or be terminated. The application employs intelligent polling mechanisms and graceful degradation to monitor AI health, ensuring the user is immediately informed of daemon state changes without silent UI failures.</p>
+                <p><strong>1. Reactive Token Streaming over IPC:</strong> The Electron main process proxies Ollama's chunked responses across the IPC boundary while the renderer incrementally updates conversation state, giving local inference a responsive desktop experience without exposing host capabilities to the UI.</p>
+                <p><strong>2. Federated Expert Retrieval:</strong> A conversation can consult one or several private Expert vaults. Sidekick searches the selected corpora, combines grounded context with Expert personas, and marks whether an answer used vault knowledge or relied on the model alone.</p>
+                <p><strong>3. Search and Memory on Local Storage:</strong> <code>better-sqlite3</code>, WAL mode, FTS5 indexes, and embedding-backed relevance search support fast conversation lookup, durable facts, and source retrieval without requiring a hosted database.</p>
+                <p><strong>4. Corpus Integrity and Portability:</strong> Versioned migrations, backup-before-migrate behavior, integrity checks, embedding-model mismatch handling, and full corpus export/import protect the long-lived knowledge asset that gives the product its value.</p>
+                <p><strong>5. Resilient Local Dependencies:</strong> Health checks and graceful degradation make Ollama and model availability visible to the user, while first-run guidance connects model choices to system RAM and disk requirements.</p>
+
+                <h3 style="color: var(--neon-green); margin-top: 2rem;">&gt;_ ENGINEERING SIGNAL</h3>
+                <p>Sidekick demonstrates desktop security boundaries, local AI integration, retrieval architecture, persistent data design, migration safety, model lifecycle handling, testing, and product-level onboarding in one cohesive system.</p>
 
                 <a href="https://github.com/metacoder87/sidekick_llm" class="submit-btn" target="_blank"
                     style="display: inline-block; margin-top: 2rem; text-decoration: none;">ACCESS_SOURCE_CODE()</a>
